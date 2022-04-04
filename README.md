@@ -63,7 +63,9 @@ plt.show()
 ```
 
 ## Output:
+### Training data
 ![OUTPUT1](train.png)
+### Testing data
 ![OUTPUT2](test.png)
 
 
