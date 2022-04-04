@@ -8,8 +8,8 @@ To write a program to implement the linear regression using gradient descent.
 2. Anaconda – Python 3.7 Installation / Moodle-Code Runner
 
 ## Algorithm
-1. Import necessary libary in python
-2. Create new variable to read a CSV-FILE
+1. Import necessary library in python
+2. Create a new variable to read a CSV-FILE
 3. Using training and test values on data-set, predict the linear line . 
 4. program end
 
