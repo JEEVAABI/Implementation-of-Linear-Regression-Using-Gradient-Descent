@@ -67,7 +67,7 @@ plt.show()
 ## Output:
 ### Plotting Linear Regression Graph:
 ![OUTPUT1](hrvssc.png)
-### Plotting Gradient Decent Graph:
+### Plotting Gradient Descent Graph:
 ![OUTPUT2](itvslo.png)
 
 
