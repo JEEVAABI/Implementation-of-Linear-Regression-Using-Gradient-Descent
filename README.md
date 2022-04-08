@@ -8,10 +8,13 @@ To write a program to implement the linear regression using gradient descent.
 2. Anaconda – Python 3.7 Installation / Moodle-Code Runner
 
 ## Algorithm
-1. Import necessary library in python
-2. Create a new variable to read a CSV-FILE
-3. Using training and test values on data-set, predict the linear line . 
-4. program end
+1. Import the standard libraries in python required for finding Gradient Design.
+2. Read the dataset file and check any null value using .isnull() method.
+3. Declare the default variables with respective values for linear regression.
+4. Calculate the loss using Mean Square Error.
+5. Predict the value of y.
+6. Plot the graph respect to hours and scores using .scatterplot() method for       Linear Regression.
+7. Plot the graph respect to loss and iterations using .plot() method for Gradient Descent.
 
 ## Program:
 ```
@@ -20,46 +23,45 @@ Program to implement the linear regression using gradient descent.
 Developed by: JEEVA ABISHAKE
 RegisterNumber:  212221240018
 */
-import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
-
-dataset=pd.read_csv('/content/std_score.csv')
-
-dataset.head()
-
-dataset.tail()
-
-x=dataset.iloc[:,:-1].values   #.iloc[:,start_col,end_col]
-y=dataset.iloc[:,1].values
-print(x)
-print(y)
-
-x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
-
-regressor=LinearRegression()
-regressor.fit(x_train,y_train)
-
-#for train values
-y_pred=regressor.predict(x_test)
-plt.scatter(x_train,y_train,color='red')
-plt.plot(x_train,regressor.predict(x_train),color='green')
-plt.title("Hours Vs Score(Training set)")
-plt.xlabel("Hours")
-plt.ylabel("Score")
+data=pd.read_csv("/content/student_scores.csv")
+data.head()
+data.tail()
+data.isnull().sum()
+#storing data to variable
+X=data.Hours
+Y=data.Scores
+print(X)
+print(Y)
+#defining variables
+n=len(X)
+m=0
+c=0
+L=0.01
+loss=[]
+for i in range(10000):
+    ypred = m*X + c
+    MSE = (1/n) * sum((ypred - Y)*2)
+    dm = (2/n) * sum(X*(ypred-Y))
+    dc = (2/n) * sum(ypred-Y)
+    c = c-L*dc
+    m = m-L*dm
+    loss.append(MSE)
+print(m,c)
+#Plotting Linear Regression Graph
+ypred=m*X+c
+plt.scatter(X,Y,color="red")
+plt.plot(X,ypred,color="green")
+plt.xlabel("Study hours")
+plt.ylabel("Scores")
+plt.title("Study hours vs Scores")
+#Graph between iteration Vs loss
+plt.show()plt.title("study iteration vs loss")
+plt.plot(loss) 
+plt.xlabel("iterations") 
+plt.ylabel("loss") 
 plt.show()
-
-#for test values
-y_pred=regressor.predict(x_test)
-plt.scatter(x_test,y_test,color='blue')
-plt.plot(x_test,regressor.predict(x_test),color='black')
-plt.title("Hours Vs Score(Test set)")
-plt.xlabel("Hours")
-plt.ylabel("Score")
-plt.show()
-
 ```
 
 ## Output:
