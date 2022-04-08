@@ -65,10 +65,10 @@ plt.show()
 ```
 
 ## Output:
-### Training data
-![OUTPUT1](train.png)
-### Testing data
-![OUTPUT2](test.png)
+### Plotting Linear Regression Graph:
+![OUTPUT1](hrvssc.png)
+### Plotting Gradient Decent Graph:
+![OUTPUT2](itvslo.png)
 
 
 ## Result:
